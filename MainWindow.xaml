@@ -1,0 +1,33 @@
+﻿<Window x:Class="BingoGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BingoGenerator"
+        mc:Ignorable="d"
+        Title="Bingo Generator" Height="450" Width="850"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize">
+    <Grid>
+        <Canvas Grid.Row="1">
+            <Image Source="/BingoLogo.jpg" HorizontalAlignment="Left" Height="450" Width="850" VerticalAlignment="Center" Stretch="UniformToFill"/>
+            <TextBlock HorizontalAlignment="Left" Margin="328,114,0,0" TextWrapping="Wrap" Text="Bingo Nummern: " VerticalAlignment="Top" Foreground="Black"/>
+            <TextBox x:Name="BingoContent" HorizontalAlignment="Left" Margin="457,104,0,0" TextWrapping="Wrap" Text="1-15, 16-30, 31-45, 46-60, 61-75" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="54,35,0,0" TextWrapping="Wrap" Text="Reihen Anzahl: " VerticalAlignment="Top"/>
+            <TextBox x:Name="RowCount" HorizontalAlignment="Left" Margin="162,35,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+            <Button Content="Generate Bingo Board" HorizontalAlignment="Left" Margin="40,378,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click_Generate"/>
+            <Button Content="Save as PDF" HorizontalAlignment="Left" Margin="723,378,0,0" VerticalAlignment="Top" Click="Button_Click_Save"/>
+            <TextBlock HorizontalAlignment="Left" Margin="54,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Feld Gr"/><Run Language="de-de" Text="öße"/><Run Text=": "/></TextBlock>
+            <TextBox x:Name="CellSize" HorizontalAlignment="Left" Margin="162,58,0,0" TextWrapping="Wrap" Text="155" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="54,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.651,2.287"><Run Text="Schrift Gr"/><Run Text="öße"/><Run Text=": "/></TextBlock>
+            <TextBox x:Name="FontSize" HorizontalAlignment="Left" Margin="162,81,0,0" TextWrapping="Wrap" Text="70" VerticalAlignment="Top" Width="120"/>
+            <CheckBox x:Name="bIsBold" Content="Bold" HorizontalAlignment="Left" Margin="162,159,0,0" VerticalAlignment="Top" IsChecked="True"/>
+            <TextBlock HorizontalAlignment="Left" Margin="54,105,0,0" TextWrapping="Wrap" Text="Abstand Links" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="54,128,0,0" TextWrapping="Wrap" Text="Abstand Oben" VerticalAlignment="Top"/>
+            <TextBox x:Name="MarginLeft" HorizontalAlignment="Left" Margin="162,104,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="MarginTop" HorizontalAlignment="Left" Margin="162,127,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="CustomNumbers" HorizontalAlignment="Left" Margin="457,34,0,0" TextWrapping="Wrap" Text="3/3:Frei" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="332,34,0,0" TextWrapping="Wrap" Text="Custom Numbers" VerticalAlignment="Top"/>
+        </Canvas>
+    </Grid>
+</Window>
