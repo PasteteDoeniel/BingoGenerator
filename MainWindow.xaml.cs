@@ -60,33 +60,34 @@ namespace BingoGenerator
         public void Save(ref SaveDocument saveArchive)
         {
             XmlElement Settings = saveArchive.CreateElement("Settings");
+           
 
             XmlElement SRowNumbers = saveArchive.CreateElement("RowNumbers");
-            SRowNumbers.InnerText = RowCount.Text;
+            SRowNumbers.InnerText = CurrentRowCount.ToString();
             Settings.AppendChild(SRowNumbers);
 
             XmlElement SCellSize = saveArchive.CreateElement("CellSize");
-            SCellSize.InnerText = CellSize.Text;
+            SCellSize.InnerText = CurrentCellSize.ToString();
             Settings.AppendChild(SCellSize);
 
             XmlElement SFontSize = saveArchive.CreateElement("FontSize");
-            SFontSize.InnerText = FontSize.Text;
+            SFontSize.InnerText = CurrentFontSize.ToString();
             Settings.AppendChild(SFontSize);
 
             XmlElement SMargin = saveArchive.CreateElement("Margin");
-            SMargin.InnerText = MarginLeft.Text + "," + MarginTop.Text;
+            SMargin.InnerText = CurrentMargin.X.ToString() + "," + CurrentMargin.Y.ToString();
             Settings.AppendChild(SMargin);
 
             XmlElement SIsBold = saveArchive.CreateElement("IsBold");
-            SIsBold.InnerText = bIsBold.IsChecked == true ? "1" : "0";
+            SIsBold.InnerText = CurrentIsBold ? "1" : "0";
             Settings.AppendChild(SIsBold);
 
             XmlElement SCustomNumbers = saveArchive.CreateElement("CustomNumbers");
-            SCustomNumbers.InnerText = CustomNumbers.Text;
+            SCustomNumbers.InnerText = CurrentCustomFields;
             Settings.AppendChild(SCustomNumbers);
 
             XmlElement SBingoNumbers = saveArchive.CreateElement("BingoNumbers");
-            SBingoNumbers.InnerText = BingoContent.Text;
+            SBingoNumbers.InnerText = CurrentNumbers;
             Settings.AppendChild(SBingoNumbers);
 
             saveArchive.AppendChild(Settings);
@@ -147,8 +148,48 @@ namespace BingoGenerator
             MarginLeft.Text = CurrentMargin.X.ToString();
             MarginTop.Text = CurrentMargin.Y.ToString();
             bIsBold.IsChecked = CurrentIsBold;
-            CustomNumbers.Text = CurrentCustomFields.ToString();
+            CustomFields.Text = CurrentCustomFields.ToString();
             BingoContent.Text = CurrentNumbers.ToString();
+        }
+
+        private void RowCount_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentRowCount = int.Parse(RowCount.Text);
+        }
+
+        private void CellSize_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentCellSize = int.Parse(CellSize.Text);
+        }
+
+        private void FontSize_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentFontSize = int.Parse(FontSize.Text);
+        }
+
+        private void MarginLeft_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentMargin.X = int.Parse(MarginLeft.Text);
+        }
+
+        private void MarginTop_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentMargin.Y = int.Parse(MarginTop.Text);
+        }
+
+        private void CustomFields_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentCustomFields = CustomFields.Text;
+        }
+
+        private void BingoContent_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CurrentNumbers = BingoContent.Text;
+        }
+
+        private void bIsBold_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentIsBold = bIsBold.IsChecked == true;
         }
     }
 }
