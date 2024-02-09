@@ -10,7 +10,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="UI/Elements/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="UI/Elements/MenuRadioButtonTheme.xaml"/>
-                <ResourceDictionary Source="UI/Elements/CheckBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">

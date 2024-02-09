@@ -24,7 +24,7 @@ namespace BingoGenerator.ViewCore.View
             FieldSize.TextContent.Text = Settings.GetCellSize().ToString();
             FontSize.TextContent.Text = Settings.GetFontSize().ToString();
             Margin.TextContent.Text = Settings.GetMargin().X.ToString() + "," + Settings.GetMargin().Y.ToString();
-            CheckBoxUIElement.SetIsChecked(IsBoldCheckbox, Settings.GetIsBold());
+            IsBoldCheckbox.IsChecked = Settings.GetIsBold();
             CustomFields.TextContent.Text = Settings.GetCustomFields().ToString();
             BingoNumbers.TextContent.Text = Settings.GetNumbers().ToString();
 
@@ -34,11 +34,12 @@ namespace BingoGenerator.ViewCore.View
             Margin.TextChangedEvent += Margin_TextChanged;
             CustomFields.TextChangedEvent += CustomFields_TextChanged;
             BingoNumbers.TextChangedEvent += BingoNumbers_TextChanged;
+            IsBoldCheckbox.StateChangedEvent += IsBoldCheckbox_Checked;
         }
 
-        private void IsBoldCheckbox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        private void IsBoldCheckbox_Checked(object sender, CheckBoxStateChangedEventArgs e)
         {
-            Settings.SetIsBold(CheckBoxUIElement.GetIsChecked(IsBoldCheckbox));
+            Settings.SetIsBold(IsBoldCheckbox.IsChecked);
         }
 
         private void Dimensions_TextChanged(object sender, TextFieldChangedEventArgs e)
