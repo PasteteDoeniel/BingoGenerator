@@ -22,8 +22,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UI\Themes\" />
-  </ItemGroup>
-
 </Project>

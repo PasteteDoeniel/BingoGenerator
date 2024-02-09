@@ -8,8 +8,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="UI/Elements/MenuButtonTheme.xaml"/>
-                <ResourceDictionary Source="UI/Elements/MenuRadioButtonTheme.xaml"/>
+                <ResourceDictionary Source="UI/Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="UI/Themes/MenuRadioButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
