@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="BingoGenerator.ViewCore.View.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:UserControls="clr-namespace:BingoGenerator.UI.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <TextBlock Text="Settings"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,20"/>
+        
+        <StackPanel Orientation="Horizontal">
+            <Border Width="500"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Stretch">
+                <Grid>
+                    <StackPanel>
+                        <UserControls:TextField x:Name="BingoNumbers"
+                                                FieldContent="Bingo Nummern:"
+                                                Foreground="White"
+                                                FontSize="18"
+                                                Margin="20,10,10,0"/>
+                        <UserControls:TextField x:Name="Dimensions"
+                                                FieldContent="Dimensionen:"
+                                                Foreground="White"
+                                                FontSize="18"
+                                                Margin="20,10,10,0"/>
+                        <UserControls:TextField x:Name="FieldSize"
+                                                FieldContent="Feld Größe:"
+                                                Foreground="White"
+                                                FontSize="18"
+                                                Margin="20,10,10,0"
+                                                />
+                        <UserControls:TextField x:Name="FontSize"
+                                                FieldContent="Font Größe:"
+                                                Foreground="White"
+                                                FontSize="18"
+                                                Margin="20,10,10,0"/>
+                        <CheckBox x:Name="IsBoldCheckbox"
+                                  Content="Fett:"
+                                  Foreground="White"
+                                  FontSize="18"
+                                  Margin="20,10,10,0"
+                                  Style="{StaticResource CheckBoxTheme}"
+                                  Checked="IsBoldCheckbox_Checked"
+                                  Unchecked="IsBoldCheckbox_Checked"/>
+                        <UserControls:TextField x:Name="Margin"
+                                                FieldContent="Margin:"
+                                                Foreground="White"
+                                                FontSize="18"
+                                                Margin="20,10,10,0"/>
+                        <UserControls:TextField x:Name="CustomFields"
+                                                FieldContent="Benutzerdefinierte Felder:"
+                                                Foreground="White"
+                                                FontSize="18"
+                                                Margin="20,10,10,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

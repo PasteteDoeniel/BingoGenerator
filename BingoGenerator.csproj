@@ -13,11 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="BingoLogo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="BingoLogo.jpg" />
+    <None Update="Images\BingoLogo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UI\Themes\" />
   </ItemGroup>
 
 </Project>

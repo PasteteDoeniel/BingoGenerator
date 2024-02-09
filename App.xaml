@@ -2,8 +2,25 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:BingoGenerator"
-             StartupUri="MainWindow.xaml">
+             xmlns:viewModel="clr-namespace:BingoGenerator.ViewCore.ViewModel"
+             xmlns:view="clr-namespace:BingoGenerator.ViewCore.View"
+             StartupUri="ViewCore/View/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="UI/Elements/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="UI/Elements/MenuRadioButtonTheme.xaml"/>
+                <ResourceDictionary Source="UI/Elements/CheckBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+                <view:SettingsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
