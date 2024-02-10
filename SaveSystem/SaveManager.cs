@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace BingoGenerator
 {
-    public class SaveDocument : XmlDocument
+    public sealed class SaveDocument : XmlDocument
     {
         public bool SaveFileContaintEntry(string entryName)
         {

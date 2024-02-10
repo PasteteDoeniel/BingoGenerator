@@ -6,15 +6,15 @@ namespace BingoGenerator.Core
 {
     public sealed class SettingsManager : ISaveInterface
     {
-        private static SettingsManager instance = null;
+        private static SettingsManager? SettingsManagerInstance;
 
-        private int CurrentRowCount;
-        private float CurrentCellSize;
-        private int CurrentFontSize;
-        private Vector2 CurrentMargin;
-        private bool CurrentIsBold;
-        private string CurrentCustomFields;
-        private string CurrentNumbers;
+        private int CurrentRowCount = Constants.DefaultRowCount;
+        private float CurrentCellSize = Constants.DefaultCellSize;
+        private int CurrentFontSize = Constants.DefaultFontSize;
+        private Vector2 CurrentMargin = Constants.DefaultMargin;
+        private bool CurrentIsBold = Constants.DefaultIsBold;
+        private string CurrentCustomFields = Constants.DefaultCustomFields;
+        private string CurrentNumbers = Constants.DefaultNumbers;
 
         private SettingsManager() 
         {
@@ -24,11 +24,11 @@ namespace BingoGenerator.Core
 
         public static SettingsManager Get()
         {
-            if (instance == null)
+            if (SettingsManagerInstance == null)
             {
-                instance = new SettingsManager();
+                SettingsManagerInstance = new SettingsManager();
             }
-            return instance;
+            return SettingsManagerInstance;
         }
 
         public int GetRowCount() { return CurrentRowCount; }
@@ -38,34 +38,13 @@ namespace BingoGenerator.Core
         public bool GetIsBold() { return CurrentIsBold; }
         public string GetCustomFields() { return CurrentCustomFields; }
         public string GetNumbers() { return CurrentNumbers; }
-        public void SetRowCount(int NewRowCount)
-        {
-            CurrentRowCount = NewRowCount;
-        }
-        public void SetCellSize(float NewCellSize)
-        {
-            CurrentCellSize = NewCellSize;
-        }
-        public void SetFontSize(int NewFontSize)
-        {
-            CurrentFontSize = NewFontSize;
-        }
-        public void SetMargin(Vector2 NewMargin)
-        {
-            CurrentMargin = NewMargin;
-        }
-        public void SetIsBold(bool NewIsBold)
-        {
-            CurrentIsBold = NewIsBold;
-        }
-        public void SetCustomFields(string NewCustomFields)
-        {
-            CurrentCustomFields = NewCustomFields;
-        }
-        public void SetNumbers(string NewNumbers)
-        {
-            CurrentNumbers = NewNumbers;
-        }
+        public void SetRowCount(int NewRowCount) { CurrentRowCount = NewRowCount; }
+        public void SetCellSize(float NewCellSize) { CurrentCellSize = NewCellSize; }
+        public void SetFontSize(int NewFontSize) { CurrentFontSize = NewFontSize; } 
+        public void SetMargin(Vector2 NewMargin) { CurrentMargin = NewMargin; }
+        public void SetIsBold(bool NewIsBold) { CurrentIsBold = NewIsBold; }
+        public void SetCustomFields(string NewCustomFields) { CurrentCustomFields = NewCustomFields; }
+        public void SetNumbers(string NewNumbers) { CurrentNumbers = NewNumbers; }
         public void Save(ref SaveDocument saveArchive)
         {
             XmlElement SettingsXML = saveArchive.CreateElement("Settings");
@@ -101,7 +80,7 @@ namespace BingoGenerator.Core
 
             saveArchive.AppendChild(SettingsXML);
         }
-
+        
         public void Load(SaveDocument loadArchive)
         {
             XmlNode SettingsEntry = new XmlDocument();
@@ -139,16 +118,6 @@ namespace BingoGenerator.Core
                         SetNumbers(Setting.InnerText);
                     }
                 }
-            }
-            else
-            {
-                SetRowCount(Constants.DefaultRowCount);
-                SetCellSize(Constants.DefaultCellSize);
-                SetFontSize(Constants.DefaultFontSize);
-                SetMargin(Constants.DefaultMargin);
-                SetIsBold(Constants.DefaultIsBold);
-                SetCustomFields(Constants.DefaultCustomFields);
-                SetNumbers(Constants.DefaultNumbers);
             }
         }
     }
