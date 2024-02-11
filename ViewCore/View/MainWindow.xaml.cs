@@ -49,21 +49,5 @@ namespace BingoGenerator.ViewCore.View
         {
             DragMove();
         }
-
-        private void Window_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
-                DragMove();
-        }
-
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine(SettingsButton.IsChecked == true ? "true" : "false");
-        }
-
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine(SettingsButton.IsChecked == true ? "true" : "false");
-        }
     }
 }
