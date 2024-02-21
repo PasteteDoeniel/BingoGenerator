@@ -39,7 +39,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="3">
                 <Border.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/BingoLogo.jpg"/>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/BingoLogo.jpg"/>
                 </Border.Background>
             </Border>
 

@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="BingoLogo.jpg" />
+    <None Remove="Images\BingoLogo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,13 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="BingoLogo.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Images\BingoLogo.jpg">
+    <Resource Include="Images\BingoLogo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
 
 </Project>
